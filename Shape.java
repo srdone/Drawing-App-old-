@@ -9,7 +9,7 @@ public abstract class Shape {
 
   //Strings for testing against in the change() method.
   //Each variable has a corresponding string
-  private static final String strX1 = "x1", strX2 = "x2", strX2 = "y1", strY2 = "y2", strLineColor = "lineColor";
+  private static final String strX1 = "x1", strX2 = "x2", strY1 = "y1", strY2 = "y2", strLineColor = "lineColor";
   
   public Shape() {
     

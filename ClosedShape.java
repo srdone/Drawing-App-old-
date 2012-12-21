@@ -8,13 +8,15 @@ public abstract class ClosedShape extends Shape implements Fillable {
   private boolean filled = false;
   private Color fillColor = Color.BLACK;
   private int width = 10, height = 10;
+
+  public static final String strFilled = "filled", strFillColor = "fillColor";
   
   public ClosedShape() {
     
   }
   
-  public ClosedShape (int x1, int y1, int width, int height, Color lineColor, Color fillColor, boolean filled) {
-    super(x1,y1,lineColor);
+  public ClosedShape (int x1, int y1, int x2, int y2, Color lineColor, Color fillColor, boolean filled) {
+    super(x1,y1,x2,y2,lineColor);
     this.setFillColor(fillColor);
     this.setFilled(filled);
   }
@@ -40,11 +42,11 @@ public abstract class ClosedShape extends Shape implements Fillable {
   }
   
   public int getWidth() {
-    return width;
+    return Math.abs(super.getX2() - super.getX1());
   }
   
   public int getHeight() {
-    return height;
+    return Math.abs(super.getY2() - super.getY1());
   }
   
   public void setFillColor(Color fillColor) {
@@ -56,11 +58,11 @@ public abstract class ClosedShape extends Shape implements Fillable {
   }
   
   public void setWidth(int width) {
-    this.width = width;
+    super.setX2(super.getX1() + width);
   }
   
   public void setHeight(int height) {
-    this.height = height;
+    super.setY2(super.getY1() + height);
   }
   
 }
